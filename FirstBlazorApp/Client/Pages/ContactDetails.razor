@@ -41,10 +41,12 @@
 	protected async Task Save()
 	{
 		await ContactService.Save(contact);
+		NavigationManager.NavigateTo("/");
+
 	}
 
 	protected void Cancel()
 	{
-		
+		NavigationManager.NavigateTo("/");
 	}
 }
