@@ -1,6 +1,5 @@
 ﻿@page "/contactdetails"
-
-
+@page "/contactdetails/{id:int}"
 
 @inject IContactsServices ContactService
 @inject NavigationManager NavigationManager
@@ -36,6 +35,9 @@
 </EditForm>
 
 @code {
+	[Parameter ]
+	public int id { get; set; }
+
 	Contact contact = new Contact();
 
 	protected async Task Save()
@@ -48,5 +50,13 @@
 	protected void Cancel()
 	{
 		NavigationManager.NavigateTo("/");
+	}
+
+	protected async override Task OnInitializedAsync()
+	{
+		if (id > 0)
+		{
+			contact = await ContactService.GetDetails(id);
+		}
 	}
 }
