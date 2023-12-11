@@ -23,8 +23,7 @@
 			<th>Last Name</th>
 			<th>Phone</th>
 			<th>Address</th>
-			<th></th>
-			<th></th>
+			
 		</thead>
 			<tbody>
 				@foreach (var contact in Contacts)
@@ -35,7 +34,7 @@
 						<td>@contact.Phone</td>
 						<td>@contact.Address</td>
 						<td><a href="/contactdetails/@contact.Id"><i>Editar</i></a></td>
-						<td></td>
+						<td><a href="/contactdelete/@contact.Id"><i>Eliminar</i></a></td>
 					</tr>
 				}
 			</tbody>
